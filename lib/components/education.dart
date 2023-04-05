@@ -28,9 +28,12 @@ class _EducationState extends State<Education> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Education',
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24.0),
+          ),
+          SizedBox(
+            height: 12.0,
           ),
           Timeline.tileBuilder(
             shrinkWrap: true,
@@ -45,12 +48,12 @@ class _EducationState extends State<Education> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           '20 March 2014',
                           style:
                               TextStyle(color: Colors.indigo, fontSize: 12.0),
                         ),
-                        Text(
+                        const Text(
                           'Passed Uni',
                           style: TextStyle(
                               fontSize: 18.0, fontWeight: FontWeight.w600),

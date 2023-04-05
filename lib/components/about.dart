@@ -36,7 +36,7 @@ class _AboutState extends State<About> {
                 'assets/dev.png',
                 height: 156.0,
               ),
-              Text(
+              const Text(
                 "Adnan Asghar",
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 30.0),
               ),

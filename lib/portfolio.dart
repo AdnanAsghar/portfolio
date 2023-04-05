@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/components/about.dart';
 import 'package:portfolio/components/education.dart';
+import 'package:portfolio/components/footer.dart';
+import 'package:portfolio/components/skills.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
@@ -10,17 +12,28 @@ class Portfolio extends StatefulWidget {
 }
 
 class _PortfolioState extends State<Portfolio> {
-  List<Widget> navItems = [
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(onPressed: () {}, child: const Text('Education')),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(onPressed: () {}, child: const Text('Skills')),
-    ),
-  ];
+  List<Widget> navItems = [];
   bool isMobile = false;
+  final skillsKey = GlobalKey();
+
+  @override
+  void initState() {
+    navItems = [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ElevatedButton(onPressed: () {}, child: const Text('Education')),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ElevatedButton(
+            onPressed: () {
+              Scrollable.ensureVisible(skillsKey.currentContext!);
+            },
+            child: const Text('Skills')),
+      ),
+    ];
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +53,11 @@ class _PortfolioState extends State<Portfolio> {
                   About(),
                   Education(),
                 ],
-              )
+              ),
+              Skills(
+                key: skillsKey,
+              ),
+              Footer(),
             ],
           ),
         ),
